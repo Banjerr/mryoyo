@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    depends_on:
+      - db
+    ports:
+      - 80:80
+    volumes:
+      - ./source/themes:/var/www/html/wp-content/themes
+      - ./source/uploads:/var/www/html/wp-content/uploads
+      - ./source/plugins:/var/www/html/wp-content/plugins
+      - ./php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wpdb
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - wordpress-db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 22222:80
+
+volumes:
+  wordpress-db-data:
+    driver: local
