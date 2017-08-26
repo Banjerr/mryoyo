@@ -1,0 +1,102 @@
+/*
+ Theme Name:   Mr YOYOThrower
+ Description:  Child theme of TwentySeventeen, customized for Mr Yoyothrower
+ Author:       Ben Redden
+ Author URI:   http://countryfriedcoders.me
+ Template:     twentyseventeen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-seventeed-child
+*/
+
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=BioRhyme|Bungee+Shade|Monoton|Rubik:900');
+
+.monoton {
+  font-family: 'Monoton', cursive;
+}
+
+.bungee {
+  font-family: 'Bungee Shade', cursive;
+}
+
+.rubik {
+  font-family: 'Rubik', sans-serif;
+}
+
+.bioRhyme {
+  font-family: 'BioRhyme', serif;
+}
+
+/* UNIVERSAL */
+
+* {
+  font-family: 'BioRhyme', cursive;
+}
+
+a {
+  transition: all .3s ease-in !important;
+}
+
+/* HEADER */
+
+.site-header .site-branding {
+  text-align: center;
+  color: #ffffff;
+}
+
+.site-header .site-title {
+    font-weight: 100;
+    letter-spacing: 4px;
+}
+
+.site-header .site-branding .cta .largeText {
+  font-size: 32px;
+  vertical-align: middle;
+}
+
+.site-header .site-branding h2, .site-header .site-branding h3, .site-header .site-branding h4 {
+  color: #ffffff;
+}
+
+.site-header .site-branding a:hover {
+  color: #000000;
+}
+
+.site-header .site-branding h4 {
+  padding: 0;
+}
+
+@media screen and (min-width: 30em) {
+  .home.blog .entry-title, .page .panel-content .recent-posts .entry-title {
+      font-size: 3.625rem;
+  }
+
+  .home .site-header .site-branding .cta h4 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .site-header .menu-scroll-down {
+      color: #fff;
+      bottom: 0;
+      padding-bottom: 0;
+      top: initial;
+  }
+
+  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+    bottom: 0;
+    top: 0;
+    height: 0;
+    padding: 0 0 45%;
+    margin: auto;
+  }
+
+  .site-title {
+    font-size: 4rem;
+  }
+}
