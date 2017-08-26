@@ -46,12 +46,13 @@
 	</div><!-- .site-content-contain -->
 </div><!-- #page -->
 
-<div class="lightboxBG"></div>
+<div class="lightboxBG" onclick="closeContactLightbox();"></div>
 <div class="lightbox">
   <button class="closeBtn" onclick="closeContactLightbox();"><i class="fa fa-times"></i></button>
   <div class="wrap">
-    <h2 class="bioRhyme">Just Say "YO"!</h2>
-    <form action="">
+    <h2 style="text-align: center; display: block;" class="bioRhyme">Just Say "YO"!</h2>
+    <form id="contact-form">
+      <input type="hidden" name="action" value="contact_send" />
       <div class="inputWrap">
         <label for="name">Name</label>
         <input type="text" id="name" name="name">
@@ -70,6 +71,36 @@
     </form>
   </div>
 </div>
+
+<script>
+  jQuery(document).ready(function() {
+    jQuery('#contact-form').submit(function (e) {
+      if (is_sending || !validateInputs()) {
+        return false; // Don't let someone submit the form while it is in-progress...
+      }
+      e.preventDefault(); // Prevent the default form submit
+      var $this = jQuery(this); // Cache this
+      jQuery.ajax({
+        url: '<?php echo admin_url("admin-ajax.php") ?>', // Let WordPress figure this url out...
+        type: 'post',
+        dataType: 'JSON', // Set this so we don't need to decode the response...
+        data: jQuery.this.serialize(), // One-liner form data prep...
+        beforeSend: function () {
+          is_sending = true;
+          // You could do an animation here...
+        },
+        error: handleFormError,
+        success: function (data) {
+          if (data.status === 'success') {
+            // Here, you could trigger a success message
+          } else {
+            handleFormError(); // If we don't get the expected response, it's an error...
+          }
+        }
+      });
+    });
+  });
+</script>
 
 <?php wp_footer(); ?>
 

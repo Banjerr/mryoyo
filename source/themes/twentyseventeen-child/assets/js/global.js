@@ -245,6 +245,25 @@
 	$( document ).on( 'wp-custom-header-video-loaded', function() {
 		$body.addClass( 'has-header-video' );
 	});
+
+	var is_sending = false,
+        failure_message = 'Whoops, looks like there was a problem. Please try again later.';
+    
+    function handleFormError () {
+      is_sending = false; // Reset the is_sending var so they can try again...
+      alert(failure_message);
+    }
+
+    function validateInputs () {
+      var $name = $('#contact-form input[name="name"]').val(),
+          $email = $('#contact-form input[name="email"]').val(),
+          $message = $('#contact-form textarea').val();
+      if (!$name || !$email || !$message) {
+        alert('Before sending, please make sure to provide your name, email, and message.');
+        return false;
+      }
+      return true;
+    }
 })( jQuery );
 
 'use strict'

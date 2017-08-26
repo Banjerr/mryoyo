@@ -420,18 +420,31 @@ button:hover {
 }
 
 .lightbox {
-    position: fixed;
-    display: none;
-    top: 20%;
-    transition: all .3s ease-in;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background: #fff;
-    max-width: 749px;
-    padding: 1% 0;
-    z-index: 15;
-    border-radius: 6px;
+  position: fixed;
+  display: none;
+  top: 10%;
+  transition: all .3s ease-in;
+  left: 0;
+  right: 0;
+  max-height: 100%;
+  margin: auto;
+  max-width: 749px;
+  padding: 0;
+  z-index: 15;
+  bottom: 0;
+  margin: auto;
+  height: auto;
+}
+
+.lightbox .wrap {
+  background: #fff;
+  overflow-y: scroll;
+  height: 100%;
+  max-height: 90%;
+  border-radius: 6px;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  max-width: 96%;
 }
 
 .lightbox form button {

@@ -10,7 +10,6 @@
 
 
 $menu_items = wp_get_nav_menu_items('Main');
-
 function listClasses($menu_item) {
   echo implode(', ', $menu_item->classes);
 };
@@ -29,8 +28,9 @@ function listClasses($menu_item) {
               <li id="id-<?php echo $menu_item->ID; ?>" class="<?php in_array('pushy-submenu', $menu_item->classes) ? '' : 'pushy-link'; ?> <?php $menu_item->classes ? listClasses($menu_item) : ''; ?>">
                 <?php
                 if (!in_array('pushy-submenu', $menu_item->classes)) {
+                  $target = $menu_item->target ? '_blank' : '_self';
                 ?>
-                  <a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
+                  <a target="<?php echo $target; ?>" href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
             <?php
                 }
                 else {
