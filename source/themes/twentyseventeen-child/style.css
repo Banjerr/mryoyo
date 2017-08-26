@@ -41,6 +41,111 @@ a {
   transition: all .3s ease-in !important;
 }
 
+::selection {
+  background: #000; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: #000; /* Gecko Browsers */
+  color: #fff;
+}
+
+button {
+  transition: all .3s ease-in !important;
+  border: 1px solid #000;
+}
+
+button:hover {
+  background: #fff;
+  color: #000 !important;
+  border: 1px solid #000;
+}
+
+/* HOVER EFFECTS */
+
+/* Rectangle In */
+.hvr-rectangle-in, button {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  background: #000;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-rectangle-in:before, button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-rectangle-in:hover, button:hover, button:focus, button:active .hvr-rectangle-in:focus, .hvr-rectangle-in:active {
+  color: white;
+}
+.hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, button:hover:before, button:focus:before, button:active:before, .hvr-rectangle-in:active:before {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* Float Shadow */
+.hvr-float-shadow, button {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  /*-webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;*/
+}
+.hvr-float-shadow:after, button:after {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  /* W3C */
+  /*-webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;*/
+}
+.hvr-float-shadow:hover, button:hover, button:focus, button:active, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  /* move the element up by 5px */
+}
+.hvr-float-shadow:hover:after, button:hover:after, button:focus:after, button:active:after, .hvr-float-shadow:focus:after, .hvr-float-shadow:active:after {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
 /* HEADER */
 
 .site-header .site-branding {
@@ -69,6 +174,309 @@ a {
 .site-header .site-branding h4 {
   padding: 0;
 }
+
+/* PUSH NAVIGATION */
+
+/*! Pushy - v1.1.0 - 2017-1-30
+* Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions.
+* https://github.com/christophery/pushy/
+* by Christopher Yee */
+/* Menu Appearance */
+.pushy {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  z-index: 9999;
+  background: #191918;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  /* enables momentum scrolling in iOS overflow elements */
+}
+.pushy a {
+  display: block;
+  color: #b3b3b1;
+  padding: 15px 30px;
+  text-decoration: none;
+}
+.pushy a:hover {
+  color: #FFF;
+}
+.pushy ul:first-child {
+  margin-top: 10px;
+}
+.pushy.pushy-left {
+  left: 0;
+}
+.pushy.pushy-right {
+  right: 0;
+}
+
+.pushy-content {
+  visibility: hidden;
+}
+
+/* Menu Movement */
+.pushy-left {
+  -webkit-transform: translate3d(-200px, 0, 0);
+  -ms-transform: translate3d(-200px, 0, 0);
+  transform: translate3d(-200px, 0, 0);
+}
+
+.pushy-open-left #container,
+.pushy-open-left .push {
+  -webkit-transform: translate3d(200px, 0, 0);
+  -ms-transform: translate3d(200px, 0, 0);
+  transform: translate3d(200px, 0, 0);
+}
+
+.pushy-right {
+  -webkit-transform: translate3d(200px, 0, 0);
+  -ms-transform: translate3d(200px, 0, 0);
+  transform: translate3d(200px, 0, 0);
+}
+
+.pushy-open-right #container,
+.pushy-open-right .push {
+  -webkit-transform: translate3d(-200px, 0, 0);
+  -ms-transform: translate3d(-200px, 0, 0);
+  transform: translate3d(-200px, 0, 0);
+}
+
+.pushy-open-left .pushy,
+.pushy-open-right .pushy {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.pushy-open-left .pushy-content,
+.pushy-open-right .pushy-content {
+  visibility: visible;
+}
+
+/* Menu Transitions */
+#container,
+.pushy,
+.push {
+  transition: transform 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+}
+
+.pushy-content {
+  transition: visibility 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+}
+
+/* Site Overlay */
+.site-overlay {
+  display: none;
+}
+
+.pushy-open-left .site-overlay,
+.pushy-open-right .site-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-animation: fade 500ms;
+  animation: fade 500ms;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Submenu Appearance */
+.pushy-submenu {
+  /* Submenu Buttons */
+  /* Submenu Icon */
+}
+.pushy-submenu ul {
+  padding-left: 15px;
+  transition: max-height 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+.pushy-submenu ul .pushy-link {
+  transition: opacity 0.2s ease-in-out;
+}
+.pushy-submenu button {
+  width: 100%;
+  color: #b3b3b1;
+  padding: 15px 30px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+}
+.pushy-submenu button:hover {
+  color: #FFF;
+}
+.pushy-submenu > a,
+.pushy-submenu > button {
+  position: relative;
+}
+.pushy-submenu > a::after,
+.pushy-submenu > button::after {
+  content: '';
+  display: block;
+  height: 11px;
+  width: 8px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  /*background: url("img/arrow.svg") no-repeat;*/
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: transform 0.2s;
+}
+
+.pushNavBtn {
+  z-index: 9;
+  position: fixed;
+  top: 6%;
+  left: 1%;
+}
+
+/* Submenu Movement */
+.pushy-submenu-closed ul {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.pushy-submenu-closed .pushy-link {
+  opacity: 0;
+}
+
+.pushy-submenu-open {
+  /* Submenu Icon */
+}
+.pushy-submenu-open ul {
+  max-height: 1000px;
+  visibility: visible;
+}
+.pushy-submenu-open .pushy-link {
+  opacity: 1;
+}
+.pushy-submenu-open a::after,
+.pushy-submenu-open button::after {
+  -webkit-transform: translateY(-50%) rotate(90deg);
+  -ms-transform: translateY(-50%) rotate(90deg);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/*# sourceMappingURL=pushy.css.map */
+
+
+/* FOOTER */
+
+.fab-btn {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  background: #000;
+  color: #fff;
+  font-family: "Bungee", cursive;
+  text-align: center;
+  padding: 1% 2%;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all .3s ease-in;
+  z-index: 10;
+  border: 1px solid #000;
+  box-shadow: 0 0 12px #000;
+}
+
+.fab-btn:hover {
+  color: #000;
+  background: #fff;
+}
+
+/* LIGHTBOX */
+
+.lightboxBG {
+  position: fixed;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: none;
+  z-index: 10;
+  opacity: .8;
+}
+
+.lightbox {
+    position: fixed;
+    display: none;
+    top: 20%;
+    transition: all .3s ease-in;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #fff;
+    max-width: 749px;
+    padding: 1% 0;
+    z-index: 15;
+    border-radius: 6px;
+}
+
+.lightbox form button {
+  padding: 2% 7% 2% 4%;
+  margin: 4% 0 0;
+}
+
+.lightbox form button i:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 18px;
+  font-size: 18px;
+  right: 1em;
+  padding: 0 1px;
+  font-family: FontAwesome;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.lightbox form button:hover i:before, .lightbox form button:focus i:before, .lightbox form button:active i:before {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.lightbox .closeBtn {
+  position: absolute;
+  right: -17px;
+  top: -17px;
+  width: 32px;
+  text-align: center;
+  border: 1px solid #fff;
+  padding: 0;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+
+/* MEDIA QUERIES */
 
 @media screen and (min-width: 30em) {
   .home.blog .entry-title, .page .panel-content .recent-posts .entry-title {
