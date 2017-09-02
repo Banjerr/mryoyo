@@ -254,6 +254,17 @@ button:hover {
   visibility: visible;
 }
 
+.pushy-submenu button:hover {
+  color: #fff !important;
+  background: #000 !important;
+  box-shadow: 0px 6px 18px -4px #fff;
+}
+
+.pushy-submenu .sub-menu {
+  list-style: circle;
+  color: #fff;
+}
+
 /* Menu Transitions */
 #container,
 .pushy,
@@ -388,7 +399,7 @@ button:hover {
   bottom: 2%;
   background: #000;
   color: #fff;
-  font-family: "Bungee", cursive;
+  font-family: "Bungee Shade", cursive;
   text-align: center;
   padding: 1% 2%;
   cursor: pointer;
@@ -519,5 +530,31 @@ button:hover {
 
   .site-title {
     font-size: 4rem;
+  }
+}
+
+@media all and (max-width: 1080px) {
+  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+    padding: 0 0 60%;
+  }
+}
+
+@media all and (max-width: 860px) {
+  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+    padding: 0;
+    height: 400px;
+    top: 14%;
+    bottom: initial;
+    vertical-align: top;
+  }
+
+  .lightbox form button {
+    display: block;
+    width: 100%;
+  }
+
+  .lightbox .closeBtn {
+    right: 12px;
+    top: 0;
   }
 }

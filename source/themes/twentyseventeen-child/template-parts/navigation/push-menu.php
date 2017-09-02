@@ -35,7 +35,7 @@ function listClasses($menu_item) {
                 }
                 else {
                 ?>
-                  <button><?php echo $menu_item->title; ?></button>
+                  <button><?php echo $menu_item->title; ?> <i class="fa fa-chevron-down"></i></button>
                 <?php
                 }
             endif;
