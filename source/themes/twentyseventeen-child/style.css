@@ -13,14 +13,14 @@
 
 /* FONTS */
 
-@import url('https://fonts.googleapis.com/css?family=BioRhyme|Bungee+Shade|Monoton|Rubik:900');
+@import url('https://fonts.googleapis.com/css?family=BioRhyme|Bungee|Monoton|Rubik:900');
 
 .monoton {
   font-family: 'Monoton', cursive;
 }
 
 .bungee {
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee', cursive;
 }
 
 .rubik {
@@ -29,6 +29,10 @@
 
 .bioRhyme {
   font-family: 'BioRhyme', serif;
+}
+
+.text-left {
+  text-align: left !important;
 }
 
 /* UNIVERSAL */
@@ -50,12 +54,13 @@ a {
   color: #fff;
 }
 
-button {
+button, form input[type="submit"] {
   transition: all .3s ease-in !important;
   border: 1px solid #000;
+  color: #fff !important;
 }
 
-button:hover {
+button:hover, input[type="submit"] {
   background: #fff;
   color: #000 !important;
   border: 1px solid #000;
@@ -64,7 +69,7 @@ button:hover {
 /* HOVER EFFECTS */
 
 /* Rectangle In */
-.hvr-rectangle-in, button {
+.hvr-rectangle-in, button, input[type="submit"] {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -77,7 +82,7 @@ button:hover {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.hvr-rectangle-in:before, button:before {
+.hvr-rectangle-in:before, button:before, input[type="submit"]:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -95,16 +100,16 @@ button:hover {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.hvr-rectangle-in:hover, button:hover, button:focus, button:active .hvr-rectangle-in:focus, .hvr-rectangle-in:active {
+.hvr-rectangle-in:hover, button:hover, button:focus, button:active .hvr-rectangle-in:focus, .hvr-rectangle-in:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active {
   color: white;
 }
-.hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, button:hover:before, button:focus:before, button:active:before, .hvr-rectangle-in:active:before {
+.hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, button:hover:before, button:focus:before, button:active:before, .hvr-rectangle-in:active:before, input[type="submit"]:hover:before, input[type="submit"]:focus:before, input[type="submit"]:active:before {
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
 /* Float Shadow */
-.hvr-float-shadow, button {
+.hvr-float-shadow, button, input[type="submit"] {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -116,7 +121,7 @@ button:hover {
   -webkit-transition-property: transform;
   transition-property: transform;*/
 }
-.hvr-float-shadow:after, button:after {
+.hvr-float-shadow:after, button:after, input[type="submit"]:after {
   pointer-events: none;
   position: absolute;
   z-index: -1;
@@ -134,12 +139,12 @@ button:hover {
   -webkit-transition-property: transform, opacity;
   transition-property: transform, opacity;*/
 }
-.hvr-float-shadow:hover, button:hover, button:focus, button:active, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+.hvr-float-shadow:hover, button:hover, button:focus, button:active, .hvr-float-shadow:focus, .hvr-float-shadow:active, input[type="submit"]:focus, input[type="submit"]:active, input[type="submit"]:hover {
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
   /* move the element up by 5px */
 }
-.hvr-float-shadow:hover:after, button:hover:after, button:focus:after, button:active:after, .hvr-float-shadow:focus:after, .hvr-float-shadow:active:after {
+.hvr-float-shadow:hover:after, button:hover:after, button:focus:after, button:active:after, .hvr-float-shadow:focus:after, .hvr-float-shadow:active:after, input[type="submit"]:hover:after, input[type="submit"]:focus:after, input[type="submit"]:active:after {
   opacity: 1;
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
@@ -147,6 +152,18 @@ button:hover {
 }
 
 /* HEADER */
+
+.twentyseventeen-front-page.has-header-image .custom-header-media, .twentyseventeen-front-page.has-header-video .custom-header-media, .home.blog.has-header-image .custom-header-media, .home.blog.has-header-video .custom-header-media {
+  height: 100% !important;
+}
+
+.has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
+  display: table !important;
+}
+
+html .has-header-image.twentyseventeen-front-page .custom-header, html .has-header-video.twentyseventeen-front-page .custom-header, html .has-header-image.home.blog .custom-header, html .has-header-video.home.blog .custom-header {
+  height: 50vh;
+}
 
 .site-header .site-branding {
   text-align: center;
@@ -399,7 +416,7 @@ button:hover {
   bottom: 2%;
   background: #000;
   color: #fff;
-  font-family: "Bungee Shade", cursive;
+  font-family: "Bungee", cursive;
   text-align: center;
   padding: 1% 2%;
   cursor: pointer;
@@ -458,12 +475,12 @@ button:hover {
   max-width: 96%;
 }
 
-.lightbox form button {
+.lightbox form button, form button {
   padding: 2% 7% 2% 4%;
   margin: 4% 0 0;
 }
 
-.lightbox form button i:before {
+.lightbox form button i:before, form button i:before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -481,7 +498,7 @@ button:hover {
   transition-timing-function: ease-in-out;
 }
 
-.lightbox form button:hover i:before, .lightbox form button:focus i:before, .lightbox form button:active i:before {
+.lightbox form button:hover i:before, .lightbox form button:focus i:before, .lightbox form button:active i:before, form button:hover i:before, form button:focus i:before, form button:active i:before {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
@@ -508,7 +525,7 @@ button:hover {
   }
 
   .home .site-header .site-branding .cta h4 {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -520,26 +537,20 @@ button:hover {
       top: initial;
   }
 
-  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+  /*.has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
     bottom: 0;
     top: 0;
     height: 0;
     padding: 0 0 45%;
     margin: auto;
-  }
+  }*/
 
   .site-title {
     font-size: 4rem;
   }
 }
 
-@media all and (max-width: 1080px) {
-  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
-    padding: 0 0 60%;
-  }
-}
-
-@media all and (max-width: 860px) {
+@media all and (max-width: 864px) {
   .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
     padding: 0;
     height: 400px;
@@ -557,4 +568,80 @@ button:hover {
     right: 12px;
     top: 0;
   }
+
+  .site-header .site-branding h2 {
+    font-size: 20px;
+  }
+
+  .home .site-header .site-branding .cta h4 {
+    font-size: 16px;
+  }
+
+  .custom-header .site-branding h1 {
+    font-size: 28px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
+    display: table;
+    height: 100% !important;
+    width: 100%;
+    padding: 4% 0;
+  }
+
+  .admin-bar.twentyseventeen-front-page.has-header-image .custom-header-media, .admin-bar.twentyseventeen-front-page.has-header-video .custom-header-media, .admin-bar.home.blog.has-header-image .custom-header-media, .admin-bar.home.blog.has-header-video .custom-header-media {
+    height: 100% !important;
+  }
+
+  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+    height: 100% !important;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .site-header .site-branding h2 {
+    font-size: 16px;
+  }
+
+  .home .site-header .site-branding .cta h4 {
+    font-size: 15px;
+  }
+
+  .site-header .site-branding .cta .largeText {
+    font-size: 22px;
+    vertical-align: middle;
+  }
+
+  .custom-header .site-branding h1 {
+    font-size: 24px;
+  }
+
+  .elementor-progress-text {
+    padding-left: 10px !important;
+    font-size: 8px !important;
+  }
+
+  .elementor-progress-percentage {
+    padding-right: 6px !important;
+    font-size: 9px !important;
+  }
+
+  .pushNavBtn {
+    z-index: 9;
+    position: fixed;
+    top: 6%;
+    left: 1%;
+    padding: 3%;
+  }
+
+  .site-header .site-title {
+    font-weight: 100;
+    letter-spacing: 4px;
+    font-size: 22px;
+  }
+}
+
+.admin-bar.twentyseventeen-front-page.has-header-image .custom-header-media, .admin-bar.twentyseventeen-front-page.has-header-video .custom-header-media, .admin-bar.home.blog.has-header-image .custom-header-media, .admin-bar.home.blog.has-header-video .custom-header-media {
+    height: calc(50vh - 32px);
 }
