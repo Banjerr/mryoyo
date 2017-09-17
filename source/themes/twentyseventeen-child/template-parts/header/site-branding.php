@@ -19,7 +19,8 @@
     ?>
       <div class="cta">
         <h2 class="bungee">School Fundraiser?</h2>
-        <h4>Does your school leadership team want to fundraise for a charity?</h4>
+        <h4>Does your school leadership team want to fundraise for a charity?<br />
+				Do you need to raise money for school projects, trips and more?</h4>
         <h4>Why not <span class="bungee largeText">yoyos!</span></h4>
       </div>
     <?php
