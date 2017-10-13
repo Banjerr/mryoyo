@@ -16,9 +16,9 @@ All that is required (after installing Docker) is to `cd` into the root of this 
 
 There will be four volumes created
 
-- one for the database (so db data wont be lost if you run `docker-compose down` or exit the container)
-- two for the source - we're not versioning WP core files since the latest core files come with the WP image, so we are just going to version the themes and the plugins directories.
-- one volume for the `uploads` directory, so that we can easily persist/source control the images/files for the site.
+- One for the database (so db data wont be lost if you run `docker-compose down` or exit the container)
+- Two for the source - we're not versioning WP core files since the latest core files come with the WP image, so we are just going to version the themes and the plugins directories.
+- One volume for the `uploads` directory, so that we can easily persist/source control the images/files for the site.
 
 ## Importing an existing site
 
